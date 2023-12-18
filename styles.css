@@ -72,12 +72,14 @@
     max-width: 1000px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "text photo";
     overflow: hidden;
     border-radius: 1rem;
     margin: 0 5rem;
   }
 
   .card-left {
+    grid-area: text;
     display: grid;
     gap: 1.5rem;
     padding: 3.5rem;
@@ -137,5 +139,33 @@
   }
 
   .img-overlay {
+    grid-area: photo;
     background-color: var(--soft-violet);
+  }
+
+  @media only screen and (max-width: 580px) {
+    .card {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "photo"
+        "text";
+    }
+
+    .card-left {
+        text-align: center;   
+        margin: auto;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .description {
+        padding-bottom: 0;
+        font-size: 0.9rem;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
   }
